@@ -11,6 +11,14 @@ def diff(a: Point, b: Point):
     return tuple(a_ax - b_ax for a_ax, b_ax in zip(a, b))
 
 
+def add(a: Point, b: Point):
+    return tuple(a_ax + b_ax for a_ax, b_ax in zip(a, b))
+
+
+def manhattan(a: Point, b: Point):
+    return sum([abs(d) for d in diff(a, b)])
+
+
 def move_straight(start: Point, end: Point, include_end=False):
     (x_diff, y_diff) = diff(end, start)
     end_inclusion_delta = 1 if include_end else 0
