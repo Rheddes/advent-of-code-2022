@@ -1,5 +1,16 @@
 from collections import namedtuple
-Point = namedtuple('Point', 'x y')
+
+
+class Point(namedtuple('Point', 'x y')):
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __sub__(self, other):
+        return Point(self.x - other.x, self.y - other.y)
+
+
+unit_x = Point(1, 0)
+unit_y = Point(0, 1)
 
 
 def point_from_string(coord: str):
