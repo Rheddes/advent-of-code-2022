@@ -12,6 +12,11 @@ class Vector:
         for item in self.items:
             yield item
 
+    def __getitem__(self, item):
+        if isinstance(item, int):
+            return self.items[item]
+        return Vector(self.items[item])
+
     def __add__(self, other):
         if isinstance(other, int):
             return Vector([i + other for i in self])
@@ -27,3 +32,5 @@ class Vector:
     def __str__(self):
         return f'vector({self.items})'
 
+    def __repr__(self):
+        return self.__str__()
