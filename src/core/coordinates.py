@@ -8,6 +8,12 @@ class Point(namedtuple('Point', 'x y')):
     def __sub__(self, other):
         return Point(self.x - other.x, self.y - other.y)
 
+    def __mul__(self, other):
+        if type(other) == int:
+            return Point(self.x * other, self.y * other)
+        if type(other) == list:
+            return Point(self.x * other[0][0] + self.y * other[0][1], self.x * other[1][0] + self.y * other[1][1])
+
 
 unit_x = Point(1, 0)
 unit_y = Point(0, 1)
